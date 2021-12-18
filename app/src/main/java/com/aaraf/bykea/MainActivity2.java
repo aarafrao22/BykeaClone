@@ -43,7 +43,7 @@ public class MainActivity2 extends AppCompatActivity implements RVClickInterface
         integerList.add(R.drawable.delivery);
         integerList.add(R.drawable.green);
         integerList.add(R.drawable.shop);
-        integerList.add(R.drawable.green);
+        integerList.add(R.drawable.shop);
 
         stringList = new ArrayList<>();
         stringList.add("Cash");
