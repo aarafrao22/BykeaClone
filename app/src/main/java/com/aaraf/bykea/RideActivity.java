@@ -3,7 +3,10 @@ package com.aaraf.bykea;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
 
 import androidx.core.content.ContextCompat;
@@ -16,6 +19,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.BitmapDescriptor;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -23,6 +27,10 @@ public class RideActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private ActivityRideBinding binding;
+
+    private LocationManager locationManager;
+
+    //Github Token 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
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +43,8 @@ public class RideActivity extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+
     }
 
 
@@ -43,20 +53,28 @@ public class RideActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
 
-        // Add a marker in Sydney and move the camera
-        LatLng sydney = new LatLng(-34, 151);
-        LatLng sydney1 = new LatLng(-34, 101);
-        LatLng sydney2 = new LatLng(-31, 151);
-        LatLng sydney3 = new LatLng(-30, 150);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney").icon(bitmapDescriptorFromVector(this,R.drawable.ic_baseline_sports_motorsports_24)));
-        mMap.addMarker(new MarkerOptions().position(sydney1).title("Marker in Sydney").icon(bitmapDescriptorFromVector(this,R.drawable.ic_baseline_sports_motorsports_24)));
-        mMap.addMarker(new MarkerOptions().position(sydney2).title("Marker in Sydney").icon(bitmapDescriptorFromVector(this,R.drawable.ic_baseline_sports_motorsports_24)));
-        mMap.addMarker(new MarkerOptions().position(sydney3).title("Marker in Sydney").icon(bitmapDescriptorFromVector(this,R.drawable.ic_baseline_sports_motorsports_24)));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney,15));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney1,15));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney2,15));
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(sydney3,15));
+
+        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+//        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+//        Location location2 = locationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        Location location3 = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
+
+        double longitude = location3.getLongitude();
+        double latitude = location3.getLatitude();
+
+        LatLng myLocation = new LatLng(latitude, longitude);
+        LatLng sydney1 = new LatLng(24.920569, 67.046729);
+        LatLng sydney2 = new LatLng(24.920464, 67.047681);
+        LatLng sydney3 = new LatLng(24.920943, 67.047053);
+//        mMap.addMarker(new MarkerOptions().position(sydney).title("Bykea 1").icon(bitmapDescriptorFromVector(this,R.drawable.ic_baseline_sports_motorsports_24)));
+        mMap.addMarker(new MarkerOptions().position(myLocation).title("My Location"));
+        mMap.addMarker(new MarkerOptions().position(sydney1).title("Bykea 2").icon(bitmapDescriptorFromVector(this,R.drawable.ic_baseline_sports_motorsports_24)));
+        mMap.addMarker(new MarkerOptions().position(sydney2).title("Bykea 3").icon(bitmapDescriptorFromVector(this,R.drawable.ic_baseline_sports_motorsports_24)));
+        mMap.addMarker(new MarkerOptions().position(sydney3).title("Bykea 4").icon(bitmapDescriptorFromVector(this,R.drawable.ic_baseline_sports_motorsports_24)));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(myLocation));
+        mMap.setMinZoomPreference(18f);
+        CircleOptions circleOptions = new CircleOptions().center(myLocation).radius(40).strokeWidth(4).strokeColor(Color.rgb(255,0,0)).fillColor(Color.argb(80,255,0,0));
+        mMap.addCircle(circleOptions);
 
 
     }

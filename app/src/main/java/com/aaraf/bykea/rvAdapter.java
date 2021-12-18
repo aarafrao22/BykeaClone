@@ -40,6 +40,8 @@ public class rvAdapter extends RecyclerView.Adapter<rvAdapter.ViewHolder> {
         Integer itemInt = integerList.get(position);
         holder.imageView.setImageResource(itemInt);
 
+//        Picasso.get().load(integerList.get(position));
+
         color = colorList.get(position);
     }
 

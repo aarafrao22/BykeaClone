@@ -3,15 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/navCall"
-        android:icon="@drawable/ic_baseline_phone_24"
-        android:title="call"
+        android:title="Home                ہوم"
         android:orderInCategory="100"
         app:showAsAction="always"/>
 
+
     <item
-        android:id="@+id/navMenu"
-        android:icon="@drawable/ic_baseline_menu_24"
-        android:title="menu"
+        android:id="@+id/missCall"
+        android:title="Missed Calls                مسڈ کالز"
         android:orderInCategory="100"
         app:showAsAction="always"/>
 

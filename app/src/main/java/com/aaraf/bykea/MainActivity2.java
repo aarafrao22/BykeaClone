@@ -11,8 +11,14 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class MainActivity2 extends AppCompatActivity implements RVClickInterface {
 
@@ -22,10 +28,20 @@ public class MainActivity2 extends AppCompatActivity implements RVClickInterface
     private List<String> stringList;
     private ImageView imageBanner;
 
+    private DatabaseReference databaseReference;
+    private StorageReference storageReference;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main2);
+
+
+        databaseReference = FirebaseDatabase.getInstance().getReference();
+        storageReference = FirebaseStorage.getInstance().getReference();
+
+//        FirebaseRecyclerOptions<RvModel> options = new FirebaseRecyclerOptions.
+//                Builder<RvModel>().setQuery(FirebaseDatabase.getInstance().getReference().child("")).build();
 
         recyclerView = findViewById(R.id.MainRecyclerView);
         imageBanner = findViewById(R.id.imageBanner);
@@ -37,13 +53,8 @@ public class MainActivity2 extends AppCompatActivity implements RVClickInterface
             }
         });
 
+
         integerList = new ArrayList<>();
-        integerList.add(R.drawable.cash);
-        integerList.add(R.drawable.green);
-        integerList.add(R.drawable.delivery);
-        integerList.add(R.drawable.green);
-        integerList.add(R.drawable.shop);
-        integerList.add(R.drawable.green);
 
         stringList = new ArrayList<>();
         stringList.add("Cash");
@@ -75,7 +86,7 @@ public class MainActivity2 extends AppCompatActivity implements RVClickInterface
             case "Cash":
                 break;
             case "Ride":
-                Intent rideIntent = new Intent(MainActivity2.this,RideActivity.class);
+                Intent rideIntent = new Intent(MainActivity2.this, RideActivity.class);
                 startActivity(rideIntent);
                 break;
             case "Delivery":
