@@ -17,6 +17,7 @@ public class rvAdapter extends RecyclerView.Adapter<rvAdapter.ViewHolder> {
     private List<String> colorList;
     private List<String> stringList;
     private RVClickInterface rvClickInterface;
+    String color;
 
     public rvAdapter(List<Integer> integerList,List<String> stringList,List<String> colorList,RVClickInterface rvClickInterface){
         this.integerList = integerList;
@@ -38,6 +39,8 @@ public class rvAdapter extends RecyclerView.Adapter<rvAdapter.ViewHolder> {
         holder.textView.setText(item);
         Integer itemInt = integerList.get(position);
         holder.imageView.setImageResource(itemInt);
+
+        color = colorList.get(position);
     }
 
     @Override
@@ -48,13 +51,12 @@ public class rvAdapter extends RecyclerView.Adapter<rvAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder{
         private TextView textView;
         private ImageView imageView;
-        private String color;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             textView = itemView.findViewById(R.id.txtRvItem);
             imageView = itemView.findViewById(R.id.imgRvItem);
-
+//            itemView.setBackgroundColor(Color.parseColor(color));
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

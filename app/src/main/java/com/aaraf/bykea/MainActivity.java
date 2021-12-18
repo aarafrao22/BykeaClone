@@ -1,7 +1,5 @@
 package com.aaraf.bykea;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
@@ -9,6 +7,8 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.os.Handler;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     private TextView textView;
@@ -22,10 +22,8 @@ public class MainActivity extends AppCompatActivity {
         textView = findViewById(R.id.txtBykea);
         textView.animate().scaleXBy(8f).scaleYBy(8f).setDuration(900);
 
-//        checkConnection();
-        intent = new Intent(MainActivity.this, MainActivity2.class);
-        startActivity(intent);
-        finish();
+        checkConnection();
+
     }
 
     private void checkConnection() {
@@ -46,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         }else {
             intIntent = new Intent(getApplicationContext(), NoInternetActivity.class);
             startActivity(intIntent);
+            finish();
         }
 
     }

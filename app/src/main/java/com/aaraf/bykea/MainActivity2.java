@@ -38,11 +38,11 @@ public class MainActivity2 extends AppCompatActivity implements RVClickInterface
         });
 
         integerList = new ArrayList<>();
+        integerList.add(R.drawable.cash);
         integerList.add(R.drawable.green);
+        integerList.add(R.drawable.delivery);
         integerList.add(R.drawable.green);
-        integerList.add(R.drawable.green);
-        integerList.add(R.drawable.green);
-        integerList.add(R.drawable.green);
+        integerList.add(R.drawable.shop);
         integerList.add(R.drawable.green);
 
         stringList = new ArrayList<>();
@@ -56,8 +56,8 @@ public class MainActivity2 extends AppCompatActivity implements RVClickInterface
         colorList = new ArrayList<>();
         colorList.add("#121212");
         colorList.add("#121212");
-        colorList.add("#121212");
-        colorList.add("#121212");
+        colorList.add("#000000");
+        colorList.add("#ffffff");
         colorList.add("#121212");
         colorList.add("#121212");
 
