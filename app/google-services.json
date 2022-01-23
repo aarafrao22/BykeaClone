@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "746914053809",
+    "project_id": "bykea-63b7b",
+    "storage_bucket": "bykea-63b7b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:746914053809:android:1e4430c6ba1f65a0a8ac90",
+        "android_client_info": {
+          "package_name": "com.aaraf.bykea"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "746914053809-itig0o0d338plfjq52sueijhh2jemkh7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4DXqLcDVVI9F2HKdwmHnh-rdJ-OkpMGQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "746914053809-itig0o0d338plfjq52sueijhh2jemkh7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
