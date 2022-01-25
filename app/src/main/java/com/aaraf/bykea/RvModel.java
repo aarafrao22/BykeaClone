@@ -1,29 +1,30 @@
 package com.aaraf.bykea;
 
 public class RvModel {
-    String Name, Url;
+    String name, image;
 
     public RvModel() {
+        //forFireBase
     }
 
-    public RvModel(String name, String url) {
-        Name = name;
-        Url = url;
+    public RvModel(String name, String image) {
+        this.name = name;
+        this.image = image;
     }
 
     public String getName() {
-        return Name;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
-    public String getUrl() {
-        return Url;
+    public String getImage() {
+        return image;
     }
 
-    public void setUrl(String url) {
-        Url = url;
+    public void setImage(String image) {
+        this.image = image;
     }
 }
