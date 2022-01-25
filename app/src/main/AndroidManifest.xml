@@ -21,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Bykea">
         <activity
+            android:name=".dropOffActivity"
+            android:exported="false" />
+        <activity
             android:name=".CallActivity"
             android:exported="false" />
         <!--

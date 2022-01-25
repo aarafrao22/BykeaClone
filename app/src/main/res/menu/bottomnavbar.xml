@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/area"
+        android:icon="@drawable/location"
+        android:title="Area"/>
+
+    <item
+        android:id="@+id/search"
+        android:icon="@drawable/ic_baseline_search_24"
+        android:title="Search"/>
+
+    <item
+        android:id="@+id/saved"
+        android:icon="@drawable/ic_baseline_star_24"
+        android:title="Saved"/>
+
+    <item
+        android:id="@+id/recent"
+        android:icon="@drawable/recent"
+        android:title="Recent"/>
+</menu>

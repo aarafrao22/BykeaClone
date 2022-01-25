@@ -1,6 +1,7 @@
 package com.aaraf.bykea;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -8,6 +9,8 @@ import android.graphics.drawable.Drawable;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.FragmentActivity;
@@ -27,6 +30,7 @@ public class RideActivity extends FragmentActivity implements OnMapReadyCallback
 
     private GoogleMap mMap;
     private ActivityRideBinding binding;
+    private LinearLayout dropOff;
 
     private LocationManager locationManager;
 
@@ -38,6 +42,15 @@ public class RideActivity extends FragmentActivity implements OnMapReadyCallback
 
         binding = ActivityRideBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        dropOff = findViewById(R.id.btnSelectDropOff);
+
+        dropOff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent dropOff = new Intent(getApplicationContext(),dropOffActivity.class);
+                startActivity(dropOff);
+            }
+        });
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
