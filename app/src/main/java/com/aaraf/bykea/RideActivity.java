@@ -34,7 +34,6 @@ public class RideActivity extends FragmentActivity implements OnMapReadyCallback
 
     private LocationManager locationManager;
 
-    //Github Token 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
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
